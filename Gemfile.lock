@@ -93,6 +93,9 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-async (1.0.0)
+      activejob (>= 5.0)
+      devise (>= 4.0)
     digest (3.1.0)
     erubi (1.11.0)
     ffi (1.15.5)
@@ -222,6 +225,13 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    slim (4.1.0)
+      temple (>= 0.7.6, < 0.9)
+      tilt (>= 2.0.6, < 2.1)
+    slim-rails (3.5.1)
+      actionpack (>= 3.1)
+      railties (>= 3.1)
+      slim (>= 3.0, < 5.0)
     spring (4.0.0)
     sprockets (4.1.1)
       concurrent-ruby (~> 1.0)
@@ -233,6 +243,7 @@ GEM
     strscan (3.0.4)
     tailwindcss-rails (2.0.13)
       railties (>= 6.0.0)
+    temple (0.8.2)
     thor (1.2.1)
     tilt (2.0.11)
     timeout (0.3.0)
@@ -273,6 +284,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise (~> 4.8)
+  devise-async (~> 1.0)
   font-awesome-rails (~> 4.7)
   jbuilder (~> 2.7)
   listen (~> 3.2)
@@ -282,6 +294,7 @@ DEPENDENCIES
   rubocop-rails
   sass-rails (>= 6)
   selenium-webdriver
+  slim-rails (~> 3.5)
   spring
   tailwindcss-rails (~> 2.0)
   turbolinks (~> 5)

@@ -61,3 +61,7 @@ gem 'tailwindcss-rails', '~> 2.0'
 gem 'font-awesome-rails', '~> 4.7'
 
 gem 'devise', '~> 4.8'
+
+gem "slim-rails", "~> 3.5"
+
+gem "devise-async", "~> 1.0"
