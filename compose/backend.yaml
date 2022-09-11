@@ -1,0 +1,26 @@
+version: '3.6'
+
+services:
+  db:
+    restart: always
+    image: postgres:14
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - ${DATABASE_PORT}:5432
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: changeme
+      PGPASSWORD: changeme
+
+  redis:
+    image: redis:4.0.10
+    restart: always
+    ports:
+      - ${REDIS_PORT}:6379
+    volumes:
+      - redis-data:/data
+
+volumes:
+  db-data:
+  redis-data:
