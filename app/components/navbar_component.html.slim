@@ -1,0 +1,34 @@
+nav class=%w[ \
+    relative \
+    w-full \
+    flex flex-wrap \
+    items-center \
+    justify-between \
+    py-4 \
+    bg-gray-100 \
+    text-gray-500 \
+    shadow-lg \
+    navbar navbar-expand-lg navbar-light \
+  ]
+  div class=%w[ \
+      container-fluid w-full \
+      flex flex-wrap \
+      items-center justify-between px-6 \
+    ]
+    ul class=%w[ \
+        navbar-nav flex flex-col pl-0 list-style-none mr-auto \
+        p-4 mt-4 rounded-lg \
+        md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 \
+      ]
+      - if user_signed_in?
+        li.nav-item.p-2 class=%w[ \
+            hover:text-gray-700 \
+            focus:text-gray-700 \
+            underline decoration-double underline-offset-4 \
+          ]
+          = link_to 'Group', groups_path, :method => :index
+        li.nav-item.p-2 class=%w[ \
+            hover:text-gray-700 \
+            focus:text-gray-700 \
+          ]
+          = link_to 'Signout', destroy_user_session_path, :method => :delete

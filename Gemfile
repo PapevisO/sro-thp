@@ -56,12 +56,10 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
-gem 'tailwindcss-rails', '~> 2.0'
-
-gem 'font-awesome-rails', '~> 4.7'
-
 gem 'devise', '~> 4.8'
-
+gem "devise-async", "~> 1.0"
 gem "slim-rails", "~> 3.5"
 
-gem "devise-async", "~> 1.0"
+gem 'tailwindcss-rails', '~> 2.0'
+gem 'font-awesome-rails', '~> 4.7'
+gem "view_component", require: "view_component/engine"
