@@ -63,3 +63,9 @@ gem "slim-rails", "~> 3.5"
 gem 'tailwindcss-rails', '~> 2.0'
 gem 'font-awesome-rails', '~> 4.7'
 gem "view_component", require: "view_component/engine"
+gem 'stimulus-rails'
+
+gem "importmap-rails", "~> 1.1"
+gem "turbo-rails", "~> 1.1"
+
+gem "stimulus_reflex", "= 3.5.0.pre9"
