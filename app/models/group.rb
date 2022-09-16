@@ -8,4 +8,18 @@ class Group < ApplicationRecord
            foreign_key: :group_id
   has_many :members, class_name: 'User', through: :group_members
 
+  def joinable?(user = nil)
+    return false if user.blank?
+    return false if creator == user
+    return false if members.include? user
+
+    true
+  end
+
+  def creator_me?(user = nil)
+    return false if user.blank?
+    return false if creator != user
+
+    true
+  end
 end

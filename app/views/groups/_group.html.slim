@@ -1,0 +1,37 @@
+| <div id="
+= dom_id group
+| ">
+- if action_name == "show"
+  p.my-5
+    = group.name
+- else
+  .flex.my-8
+    .w-full
+      = link_to group_path(group), :method => :get, class: %w[ \
+        block \
+      ]
+        p.text-2xl
+          = group.name
+          - if group.creator_me? current_user
+            '
+            span.text-sm.text-slate-400
+              | Created by you
+        .flex.my-5.w-full.text-sm
+          .pr-4.whitespace-nowrap	
+            = render 'count_widget', entity: 'person', count: group.group_members.count
+          .pr-4.whitespace-nowrap	
+            = render 'count_widget', entity: 'post', count: (group.respond_to?(:posts) ? group.posts.count : 0)
+          .w-max.whitespace-nowrap
+            ' Last activity
+            = time_ago_in_words group.updated_at
+    .w-full.no-wrap.text-2xl
+      - if group.joinable? current_user
+        = link_to group_join_path(group), :method => :post, class: %w[ \
+          rounded-xl py-1 px-5 w-60 text-center \
+          block font-medium border-2 border-slate-600	\
+        ]
+          i.fa.fa-user-plus aria-hidden="true"
+          '
+          | Join
+    / = link_to "Show this group", group, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium"
+    / = link_to 'Edit this group', edit_group_path(group), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium"

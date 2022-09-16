@@ -1,0 +1,38 @@
+.w-full.flex-col
+  - if notice.present?
+    p#notice.py-2.px-3.bg-green-50.mb-5.text-green-500.font-medium.rounded-lg.inline-block
+      = notice
+  h1.py-4.font-bold.text-2xl
+      | Groups
+  .w-full.text-sm
+    .flex.justify-between.items-center
+      ul class=%w[ \
+        flex -md:flex-col md:flex-row \
+        -md:divide-y -md:divide-y-2 \
+        md:divide-x md:divide-x-2 \
+        divide-solid divide-slate-600 \
+        p-2 md:pl-0 rounded-xl \
+        border-2 border-slate-600 \
+      ]
+        li class=%w[md:px-2 py-2]
+          = link_to groups_path
+            | All groups
+        li class=%w[md:px-2 py-2]
+          = link_to groups_path(filter_by: :creator_me)
+            | Created by me
+        li class=%w[md:px-2 py-2]
+          = link_to groups_path(filter_by: :member_me)
+            | Where I am member
+      = link_to new_group_path, class: %w[ \
+        rounded-xl p-3 \
+        bg-stripes-lime-400 bg-stripes bg-stripes-white \
+        block font-medium border-2 border-slate-600	\
+      ]
+        i.fa.fa-users aria-hidden="true"
+        sub.text-xs
+          i.fa.fa-plus aria-hidden="true"
+        '
+        | Create a new group
+  .w-full
+    #groups.min-w-full
+      = render @groups
