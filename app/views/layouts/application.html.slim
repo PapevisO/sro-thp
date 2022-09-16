@@ -6,10 +6,11 @@ html
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'tailwind', 'inter-font', 'data-turbo-track': 'reload'
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbo-track': 'reload'
     = javascript_importmap_tags
   body
     = render NavbarComponent.new(user: current_user)
     main.container.mx-auto.mt-4.px-5.flex
       = yield
+      = turbo_frame_tag 'modal', target: '_top'
