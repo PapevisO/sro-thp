@@ -36,4 +36,15 @@ class User < ApplicationRecord
   ].each do |address_field|
     validates address_field, length: { maximum: 500 }
   end
+
+  has_many :groups,
+           inverse_of: :creator,
+           foreign_key: :creator_id
+  has_many :group_members,
+           inverse_of: :member,
+           foreign_key: :member_id
+  has_many :groups_member_me,
+           class_name: 'Group',
+           through: :group_members,
+           source: :group
 end
