@@ -26,6 +26,15 @@ Rails.application.configure do
 
   # Compress CSS using a preprocessor.
   # config.assets.css_compressor = :sass
+  #
+  # fix
+  # rails aborted!
+  # SassC::SyntaxError: Error: Function rgb is missing argument $green.
+  #         on line 1 of stdin
+  # >> dden]){--tw-divide-opacity:1;border-color:rgb(71 85 105/var(--tw-divide-opac
+  #    ------------------------------------------^    
+  # https://github.com/tailwindlabs/tailwindcss/discussions/6738
+  config.assets.css_compressor = nil
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
