@@ -3,7 +3,7 @@
 // ./bin/rails generate stimulus controllerName
 
 import StimulusReflex from "stimulus_reflex"
-import { application } from "./application"
+import { application } from "controllers/application"
 import { cable } from "@hotwired/turbo-rails"
 
 // Eager load all controllers defined in the import map under controllers/**/*_controller
