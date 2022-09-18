@@ -1,0 +1,8 @@
+Dockerfile
+.dockerignore
+compose
+.git
+.gitignore
+LICENSE.md
+Makefile
+README.md

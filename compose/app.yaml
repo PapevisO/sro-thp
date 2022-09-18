@@ -1,3 +1,37 @@
 version: '3.6'
 
-services: {}
+services:
+  app:
+    restart: always
+    build:
+      context: ../
+    environment:
+      - VIRTUAL_HOST=sro-thp.papievis.com
+      - VIRTUAL_PORT=3000
+      - VIRTUAL_PROTO=http
+      - SSL_POLICY=Mozilla-Modern
+      - LETSENCRYPT_HOST=sro-thp.papievis.com
+      - LETSENCRYPT_EMAIL=postmaster@papievis.com
+      - DATABASE_HOST=db
+      - DATABASE_PORT=5432
+      - DATABASE_USER=root
+      - DATABASE_PASS=changeme
+      - RAILS_SERVE_STATIC_FILES=true
+      - RAILS_LOG_TO_STDOUT=true
+    volumes:
+      - ../app:/home/app/app
+      - ../db/migrate:/home/app/db/migrate
+      - ../config:/home/app/config
+      - ../lib:/home/app/lib
+      - ../node_modules:/home/app/node_modules
+      - ../test:/home/app/test
+      - ../public:/home/app/public
+      - ../storage:/home/app/storage
+      - ../vendor:/home/app/vendor
+      - ../Gemfile:/home/app/Gemfile
+      - ../Gemfile.lock:/home/app/Gemfile.lock
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
