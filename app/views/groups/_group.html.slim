@@ -2,12 +2,16 @@
 = dom_id group
 | ">
 - if action_name == "show"
-  p.my-5
+  p.my-5.text-2xl
     = group.name
+    - if group.creator_me? current_user
+      '
+      span.text-sm.text-slate-400
+        | Created by you
 - else
   .flex.my-8
     .w-full
-      = link_to group_path(group), :method => :get, class: %w[ \
+      = link_to group_path(group), class: %w[ \
         block \
       ]
         p.text-2xl

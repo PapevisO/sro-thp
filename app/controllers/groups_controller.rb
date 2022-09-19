@@ -28,6 +28,10 @@ class GroupsController < ApplicationController
   # GET /groups/new
   def new
     @group = Group.new
+    respond_to do |format|
+      format.turbo_stream
+      format.html { render layout: false, format: "text/vnd.turbo-stream.html" }
+    end
   end
 
   # GET /groups/1/edit

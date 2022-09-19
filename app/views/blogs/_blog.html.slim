@@ -1,0 +1,23 @@
+| <div id="
+= dom_id blog
+| "> 
+p.my-5
+  strong.block.font-medium.mb-1
+    | Title:
+  = blog.title
+p.my-5
+  strong.block.font-medium.mb-1
+    | Text:
+  = blog.text
+p.my-5
+  strong.block.font-medium.mb-1
+    | User:
+  = blog.user_id
+p.my-5
+  strong.block.font-medium.mb-1
+    | Group:
+  = blog.group_id
+- if action_name != "show"
+  = link_to "Show this blog", blog, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium"
+  = link_to 'Edit this blog', edit_blog_path(blog), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium"
+  hr.mt-6
