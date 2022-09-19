@@ -71,6 +71,25 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "sro_thp_production"
 
+  if ENV['DEFAULT_URL_HOST'].present?
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      address: ENV['SMTP_HOST'],
+      port: ENV['SMTP_PORT'],
+      domain: ENV['DEFAULT_URL_HOST'],
+      user_name: ENV['SMTP_USER'],
+      password: ENV['SMTP_PASSWORD'],
+      authentication: 'plain',
+      enable_starttls_auto: true
+    }
+
+    if ENV['DEFAULT_URL_PROTOCOL'].present?
+      config.action_mailer.default_url_options = {
+        host: ENV['DEFAULT_URL_HOST'],
+        protocol: ENV['DEFAULT_URL_PROTOCOL']
+      }
+    end
+  end
   config.action_mailer.perform_caching = false
 
   # Ignore bad email addresses and do not raise email delivery errors.

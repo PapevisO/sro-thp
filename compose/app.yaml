@@ -16,6 +16,14 @@ services:
       - DATABASE_PORT=5432
       - DATABASE_USER=root
       - DATABASE_PASS=changeme
+      - DEFAULT_URL_HOST=sro-thp.papievis.com
+      - DEFAULT_URL_PROTOCOL=https
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_USER=${SMTP_USER}
+      - SMTP_PASSWORD=${SMTP_PASSWORD}
+      - SMTP_SENDER=${SMTP_SENDER}
+      - SMTP_NAME=${SMTP_NAME}
       - RAILS_SERVE_STATIC_FILES=true
       - RAILS_LOG_TO_STDOUT=true
     volumes:
