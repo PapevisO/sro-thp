@@ -10,9 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_14_211444) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_16_235606) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "ltree"
   enable_extension "plpgsql"
+
+  create_table "blogs", force: :cascade do |t|
+    t.string "type"
+    t.string "title"
+    t.text "text"
+    t.bigint "user_id", null: false
+    t.bigint "group_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "parent_id"
+    t.ltree "path"
+    t.index ["group_id"], name: "index_blogs_on_group_id"
+    t.index ["parent_id"], name: "index_blogs_on_parent_id"
+    t.index ["user_id"], name: "index_blogs_on_user_id"
+  end
 
   create_table "group_members", force: :cascade do |t|
     t.bigint "group_id", null: false
@@ -65,6 +81,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_14_211444) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "blogs", "groups"
+  add_foreign_key "blogs", "users"
   add_foreign_key "group_members", "groups"
   add_foreign_key "group_members", "users", column: "member_id"
   add_foreign_key "groups", "users", column: "creator_id"

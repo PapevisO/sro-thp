@@ -69,3 +69,5 @@ gem "importmap-rails", "~> 1.1"
 gem "turbo-rails", "~> 1.1"
 
 gem "stimulus_reflex", "= 3.5.0.pre9"
+
+gem "ltree_hierarchy", "~> 1.0"

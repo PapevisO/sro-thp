@@ -127,6 +127,9 @@ GEM
     loofah (2.18.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
+    ltree_hierarchy (1.0.0)
+      activerecord (>= 4.2.0)
+      pg
     mail (2.7.1)
       mini_mime (>= 0.1.1)
     marcel (1.0.2)
@@ -326,6 +329,7 @@ DEPENDENCIES
   importmap-rails (~> 1.1)
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  ltree_hierarchy (~> 1.0)
   pg (~> 1.2)
   puma (~> 4.1)
   rails (~> 7)
